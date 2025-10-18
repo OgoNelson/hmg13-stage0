@@ -9,6 +9,13 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
+//Home route
+app.get("/", (req, res) => {
+  return res
+    .status(200)
+    .json({ status: "success", message: "MY HMG13 stage0 task" });
+});
+
 //Health check
 app.get("/health", (req, res) => {
   return res.status(200).json({ status: "success", message: "OK" });
