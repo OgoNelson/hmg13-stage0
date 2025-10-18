@@ -4,6 +4,7 @@
   "description": "Displays user profile + a cat fact",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js",
     "test": "jest"
   },
