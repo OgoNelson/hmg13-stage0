@@ -2,12 +2,15 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const userProfileController = require("./contoller/userProfile.controller");
-
-dotenv.config();
+const clean = (val) => val?.replace(/^['"]|['"]$/g, "");
+// Only load .env file in local development
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 const app = express();
 app.use(cors());
 
-const PORT = process.env.PORT || 8080;
+const PORT = clean(process.env.PORT) || 8080;
 
 //Home route
 app.get("/", (req, res) => {
