@@ -12,9 +12,9 @@ const userProfileController = async (req, res) => {
     const data = {
       status: "success",
       user: {
-        email: "goldnelsgroup@gmail.com",
-        name: "Ogo Nelson",
-        stack: "Node.js/Express",
+        email: process.env.EMAIL,
+        name: process.env.NAME,
+        stack: process.env.STACK,
       },
       timestamp: new Date().toISOString(),
       fact: response.data.fact,
@@ -28,10 +28,10 @@ const userProfileController = async (req, res) => {
     // Graceful fallback if API fails
     const fallback = {
       status: "success",
-       user: {
-        email: "goldnelsgroup@gmail.com",
-        name: "Ogo Nelson",
-        stack: "Node.js/Express",
+      user: {
+        email: process.env.EMAIL,
+        name: process.env.NAME,
+        stack: process.env.STACK,
       },
       timestamp: new Date().toISOString(),
       fact: "Cats are awesome, even when facts are unavailable right now 😸",
