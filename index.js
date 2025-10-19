@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const userProfileController = require("./contoller/userProfile.controller");
-const clean = (val) => val?.replace(/^['"]|['"]$/g, "");
+
 // Only load .env file in local development
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 app.use(cors());
 
-const PORT = clean(process.env.PORT) || 8080;
+const PORT = process.env.PORT || 8080;
 
 //Home route
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ app.get("/health", (req, res) => {
 app.get("/me", userProfileController);
 
 //listen to the server
-app.listen(PORT, "0.0.0.0", () => {
+app.listen(PORT, "0.0.0.0",() => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
