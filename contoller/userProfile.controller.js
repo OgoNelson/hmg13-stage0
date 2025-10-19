@@ -1,5 +1,5 @@
 const axios = require("axios");
-require("dotenv").config();
+const clean = (val) => val?.replace(/^['"]|['"]$/g, "");
 
 const userProfileController = async (req, res) => {
   try {
@@ -12,9 +12,9 @@ const userProfileController = async (req, res) => {
     const data = {
       status: "success",
       user: {
-        email: process.env.EMAIL,
-        name: process.env.NAME,
-        stack: process.env.STACK,
+        email: clean(process.env.EMAIL),
+        name: clean(process.env.NAME),
+        stack: clean(process.env.STACK),
       },
       timestamp: new Date().toISOString(),
       fact: response.data.fact,
@@ -29,9 +29,9 @@ const userProfileController = async (req, res) => {
     const fallback = {
       status: "success",
       user: {
-        email: process.env.EMAIL,
-        name: process.env.NAME,
-        stack: process.env.STACK,
+        email: clean(process.env.EMAIL),
+        name: clean(process.env.NAME),
+        stack: clean(process.env.STACK),
       },
       timestamp: new Date().toISOString(),
       fact: "Cats are awesome, even when facts are unavailable right now 😸",
