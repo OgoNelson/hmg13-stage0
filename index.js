@@ -10,7 +10,7 @@ if (process.env.NODE_ENV !== "production") {
 const app = express();
 app.use(cors());
 
-const PORT = process.env.PORT || 8080;
+const PORT = 5000;
 
 //Home route
 app.get("/", (req, res) => {
@@ -28,7 +28,7 @@ app.get("/health", (req, res) => {
 app.get("/me", userProfileController);
 
 //listen to the server
-app.listen(PORT, "0.0.0.0",() => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
