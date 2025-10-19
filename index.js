@@ -3,10 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const userProfileController = require("./contoller/userProfile.controller");
 
-// Only load .env file in local development
-if (process.env.NODE_ENV !== "production") {
-  dotenv.config();
-}
+dotenv.config();
 const app = express();
 app.use(cors());
 
