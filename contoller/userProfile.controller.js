@@ -1,4 +1,7 @@
 const axios = require("axios");
+const dotenv = require("dotenv")
+
+dotenv.config()
 
 const userProfileController = async (req, res) => {
   try {
