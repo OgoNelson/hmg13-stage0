@@ -7,6 +7,11 @@ const userProfileController = async (req, res) => {
     const response = await axios.get("https://catfact.ninja/fact", {
       timeout: 5000, // 5 seconds timeout
     });
+    console.log({
+      email: process.env.EMAIL,
+      name: process.env.NAME,
+      stack: process.env.STACK,
+    });
 
     // Construct response
     const data = {
